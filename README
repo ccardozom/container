@@ -1,1 +1,33 @@
-This repository tries to emulate three C++ containers, STACK, VECTOR and MAP container
+En este repositorio intento replicar en su totalidad tres contenedores de la libreria STD de C++, STACK, VECTOR y MAP
+
+Los contenedores son una forma de estructurar los datos generalmente en una cantidad ilimitada. Facilitan la gestión del espacio de almacenamiento necesario en la memoria para los objetos creados
+
+STACK 
+
+Este contendor es mas un contenedor adaptador, que significa que esta diseñado para poder manejar los elementos con un contexto de LIFO(Last In First Out - ultimo en entrar primero en salir)
+
+La sintaxis es
+
+			template <class Type, class Container = deque <Type> > class stack
+
+el parametro <Type> es el tipo de dato de los elementos que se van a almacenar en el stack y su alias es T
+el parametro <Container> es el tipo de contenedor subyacente que se usa para implementar el stack. El valor por defecto es <deque <Type> pero yo usare el <vector <Type>> 
+	¿Que es un contenedor subyacente?
+	Entiendo por contenedor subyacente que es el contenedor que quieres usar para instanciar una clase que pueden ser std::vector, std::deque y std::list porque son los que cumplen con los requisitos de proporcionar los metodos back(), push_back() y pop_back() 
+
+Tiene los siguientes metodos:
+
+	- empty
+	- size
+	- back
+	- push_back
+	- pop_back
+
+Los tipos de miembros y su definicion:
+
+	container_type		Container
+	value_type			Conatiner::value_type
+	size_type			Container::size_type
+	reference			Container::reference
+	const_reference 	Container::const_reference
+
