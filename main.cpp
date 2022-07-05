@@ -1,9 +1,11 @@
 #include <vector>
+#include "vector/vector.hpp"
 #include <iostream>
 #include <cmath>
 #include <string>
 
 int main(){
+    ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
     std::vector<int> v1(10); //inicializando un vector de tipo enteros vacio
     int x=15, y=100;
     std::vector<int> v2(x,y); //inicializando un vector de 15 elementos inicializados a 0
@@ -11,8 +13,8 @@ int main(){
 
     std::cout << "Numero de elementos del vector v1: " << v1.size() << std::endl;
     std::cout << "Numero de elementos del vector v1: " << v2.size() << std::endl;
-    for (int i=0;i<v2.size();i++)
-        std::cout << "Posicion v["<< i<< "] tiene el valor:" << v2[i] << std::endl;
+//    for (int i=0;i<v2.size();i++)
+  //      std::cout << "Posicion v["<< i<< "] tiene el valor:" << v2[i] << std::endl;
 
     std::allocator<int> myAllocator;
     int *arr = myAllocator.allocate(5);
