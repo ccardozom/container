@@ -1,5 +1,6 @@
 #include <vector>
-#include "vector/vector.hpp"
+#include "Vector/vector.hpp"
+#include "Stack/stack.hpp"
 #include <iostream>
 #include <cmath>
 #include <string>
