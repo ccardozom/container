@@ -4,7 +4,7 @@ Los contenedores son una forma de estructurar los datos generalmente en una cant
 
 STACK 
 
-Este contendor es mas un contenedor adaptador, que significa que esta diseñado para poder manejar los elementos con un contexto de LIFO(Last In First Out - ultimo en entrar primero en salir)
+Este es mas un contenedor adaptador, que significa que esta diseñado para poder manejar los elementos con un contexto de LIFO(Last In First Out - ultimo en entrar primero en salir)
 
 La sintaxis es
 
@@ -12,16 +12,18 @@ La sintaxis es
 
 el parametro <Type> es el tipo de dato de los elementos que se van a almacenar en el stack y su alias es T
 el parametro <Container> es el tipo de contenedor subyacente que se usa para implementar el stack. El valor por defecto es <deque <Type> pero yo usare el <vector <Type>> 
+	
 	¿Que es un contenedor subyacente?
-	Entiendo por contenedor subyacente que es el contenedor que quieres usar para instanciar una clase que pueden ser std::vector, std::deque y std::list porque son los que cumplen con los requisitos de proporcionar los metodos back(), push_back() y pop_back() 
+		Entiendo por contenedor subyacente que es el contenedor que quieres usar para instanciar una clase que pueden ser std::vector, std::deque y std::list porque son los que cumplen con los requisitos de proporcionar los metodos back(), push_back() y pop_back() 
 
-Tiene los siguientes metodos:
+Tiene los siguientes metodos o funciones miembros (todos son públicos):
 
+	- Constructores
 	- empty
 	- size
 	- back
-	- push_back
-	- pop_back
+	- push	
+	- pop
 
 Los tipos de miembros y su definicion:
 

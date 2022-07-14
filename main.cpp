@@ -6,7 +6,7 @@
 #include <string>
 
 int main(){
-    ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
+    //ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
     std::vector<int> v1(10); //inicializando un vector de tipo enteros vacio
     int x=15, y=100;
     std::vector<int> v2(x,y); //inicializando un vector de 15 elementos inicializados a 0
