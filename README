@@ -26,9 +26,8 @@ Tiene los siguientes metodos o funciones miembros (todos son públicos):
 
 Los tipos de miembros y su definicion:
 
-	container_type		Container
-	value_type			Conatiner::value_type
-	size_type			Container::size_type
-	reference			Container::reference
-	const_reference 	Container::const_reference
+	container_type		Container (Es el contenedor base o subyacente en nuestro caso seria vector<T>)
+	value_type			Conatiner::value_type (Es el tipo de elemento que recibe, puede ser int, char, string,..etc)
+	size_type			Container::size_type (Es un numero entero positivo, seria un unsigned 0~MAX_INT)
+
 

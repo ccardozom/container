@@ -9,6 +9,23 @@ int main(){
 
   //Pruebas con el contenedor stack
   ft::stack<int> pila1;
+  ft::stack<int> pila2;
+
+  std::cout << "\n========= push =============" << std::endl;
+  std::cout << "pila1.push(5);" << std::endl;
+  pila1.push(5);
+
+  std::cout << "========= top =============" << std::endl;
+  int value1 = pila1.top();
+  std::cout << "El elemento de la pila1 es: " << value1 << std::endl;
+
+  std::cout << "========= empty =============" << std::endl;
+  std::string ret = pila1.empty() ? "True" : "False";
+  std::cout << "El Objeto pila1 esta vacio: " << ret << std::endl;
+  ret = pila2.empty() ? "True" : "False";
+  std::cout << "El Objeto pila2 esta vacio: " << ret << std::endl;
+
+
 
     //ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
     std::vector<int> v1(10); //inicializando un vector de tipo enteros vacio
@@ -16,7 +33,7 @@ int main(){
     std::vector<int> v2(x,y); //inicializando un vector de 15 elementos inicializados a 0
     std::vector<std::string> vector_de_cadena; //inicializando un vector de tipo string vacio
 
-    std::cout << "Numero de elementos del vector v1: " << v1.size() << std::endl;
+    std::cout << "\nNumero de elementos del vector v1: " << v1.size() << std::endl;
     std::cout << "Numero de elementos del vector v1: " << v2.size() << std::endl;
 //    for (int i=0;i<v2.size();i++)
   //      std::cout << "Posicion v["<< i<< "] tiene el valor:" << v2[i] << std::endl;
