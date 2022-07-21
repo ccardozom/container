@@ -12,10 +12,11 @@ La sintaxis es
 
 el parametro <Type> es el tipo de dato de los elementos que se van a almacenar en el stack y su alias es T
 el parametro <Container> es el tipo de contenedor subyacente que se usa para implementar el stack. El valor por defecto es <deque <Type> pero yo usare el <vector <Type>> 
+	
 	¿Que es un contenedor subyacente?
-	Entiendo por contenedor subyacente que es el contenedor que quieres usar para instanciar una clase que pueden ser std::vector, std::deque y std::list porque son los que cumplen con los requisitos de proporcionar los metodos back(), push_back() y pop_back() 
+		Entiendo por contenedor subyacente que es el contenedor que quieres usar para instanciar una clase que pueden ser std::vector, std::deque y std::list porque son los que cumplen con los requisitos de proporcionar los metodos back(), push_back() y pop_back() 
 
-Tiene los siguientes metodos:
+Tiene los siguientes metodos o funciones miembros (todos son públicos):
 
 	- empty:	comprueba si el stack esta vacio, devuelve verdadero si esta vacio, de lo contrario devuelve falso.
 	- pop: 		elimina el último elemento agregado al stack y reduce el tamaño en uno
