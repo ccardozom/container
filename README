@@ -4,7 +4,7 @@ Los contenedores son una forma de estructurar los datos generalmente en una cant
 
 STACK 
 
-Este contendor es mas un contenedor adaptador, que significa que esta diseñado para poder manejar los elementos con un contexto de LIFO(Last In First Out - ultimo en entrar primero en salir)
+Este contendor es mas un adaptador de contenedor, que significa que esta diseñado para poder manejar los elementos con un contexto de LIFO(Last In First Out - ultimo en entrar primero en salir)
 
 La sintaxis es
 
@@ -17,11 +17,11 @@ el parametro <Container> es el tipo de contenedor subyacente que se usa para imp
 
 Tiene los siguientes metodos:
 
-	- empty
-	- size
-	- back
-	- push_back
-	- pop_back
+	- empty:	comprueba si el stack esta vacio, devuelve verdadero si esta vacio, de lo contrario devuelve falso.
+	- pop: 		elimina el último elemento agregado al stack y reduce el tamaño en uno
+	- push:		inserta un elemento al stack en la parte superior, aumenta en uno su tamaño
+	- size:		devuelve el tamaño del stack
+	- top:		accede al último elemento agregado al stack y devuelve una referencia a ese elemento.
 
 Los tipos de miembros y su definicion:
 
