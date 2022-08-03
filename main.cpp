@@ -8,18 +8,19 @@
 int main(){
 
   //Pruebas con el contenedor stack
-  ft::stack<int> pila1;
+  //ft::stack<int> pila1;
   ft::stack<int> pila2;
+  ft::stack<int> pila1 = ft::stack<int>();
 
   std::cout << "\n========= push =============" << std::endl;
-  std::cout << "pila1.push(5);" << std::endl;
+  std::cout << "Añadimos un elemento a pila1 con el metodo push de esta forma --> pila1.push(5);" << std::endl;
   pila1.push(5);
 
-  std::cout << "========= top =============" << std::endl;
+  std::cout << "\n========= top =============" << std::endl;
   int value1 = pila1.top();
   std::cout << "El elemento de la pila1 es: " << value1 << std::endl;
 
-  std::cout << "========= empty =============" << std::endl;
+  std::cout << "\n========= empty =============" << std::endl;
   std::string ret = pila1.empty() ? "True" : "False";
   std::cout << "El Objeto pila1 esta vacio: " << ret << std::endl;
   ret = pila2.empty() ? "True" : "False";
