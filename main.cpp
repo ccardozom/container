@@ -13,7 +13,7 @@ int main(){
   ft::stack<int> pila1 = ft::stack<int>();
 
   std::cout << "\n========= push =============" << std::endl;
-  std::cout << "Añadimos un elemento a pila1 con el metodo push de esta forma --> pila1.push(5);" << std::endl;
+  std::cout << "Añadimos un elemento a pila1 con el metodo push de esta forma -->g@ pila1.push(5);" << std::endl;
   pila1.push(5);
 
   std::cout << "\n========= top =============" << std::endl;
