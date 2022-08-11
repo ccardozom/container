@@ -65,21 +65,15 @@ namespace ft {
 			template< typename Type, typename C>
 			friend bool	operator==( const stack<Type, C>& lhs,	const stack<Type, C>& rhs );
             
-            //sobrecarga de operadores
-            //template <class T, class Container>
-            //bool operator== (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
+            template <class Type, class C>
+            friend bool operator< (const stack<Type, C>& lhs, const stack<Type,C>& rhs);
 
-           // }
 /*
             template <class T, class Container>
             bool operator!= (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
 
             }
 
-            template <class T, class Container>
-            bool operator<  (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
-
-            }
 
             template <class T, class Container>
             bool operator<= (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
@@ -99,9 +93,15 @@ namespace ft {
 
     
     template< typename Type, typename Container >
-		inline bool	operator==( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs )
+	bool operator== ( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs )
+    {
+        return lhs.c == rhs.c;
+    }
+
+	template< typename Type, typename Container > 
+    bool operator< ( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs )
 		{
-			return lhs.c == rhs.c;
+			return lhs.c < rhs.c;
 		}
 /*
 	template< typename Type, typename Container >
@@ -110,14 +110,6 @@ namespace ft {
 					const stack<Type, Container>& rhs )
 		{
 			return !(lhs == rhs);
-		}
-
-	template< typename Type, typename Container >
-		inline bool
-		operator<( const stack<Type, Container>& lhs,
-					const stack<Type, Container>& rhs )
-		{
-			return lhs.c < rhs.c;
 		}
 
 	template< typename Type, typename Container >

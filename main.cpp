@@ -38,6 +38,10 @@ int main(){
   bool test = (pila2 == pila1);
   std::cout << test << " son iguales" <<std::endl;
 
+  test = (pila2 < pila1);
+  std::cout << test << " es menor " <<std::endl;
+
+
     //ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
     std::vector<int> v1(10); //inicializando un vector de tipo enteros vacio
     int x=15, y=100;
