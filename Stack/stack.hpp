@@ -2,6 +2,7 @@
 #define STACK_HPP
 
 #include <vector>
+#include <iostream>
 
 namespace ft {
     template <class T, class Container = std::vector<T> > 
@@ -44,34 +45,32 @@ namespace ft {
                 return c.empty();
             }
 
-            void push(const value_type& value){
-                c.push_back(value);
+            size_type size(){
+                return c.size();
             }
    
             value_type& top(){
                 return c.back();
             }
-/* 
+
+            void push(const value_type& value){
+                c.push_back(value);
+            }
+
             void pop(){
-
+                c.pop_back();
             }
+ 
 
-
-            size_type size(){
-
-            }
-
-
-            const value_type& top() const{
-
-            }
-
+			template< typename Type, typename C>
+			friend bool	operator==( const stack<Type, C>& lhs,	const stack<Type, C>& rhs );
+            
             //sobrecarga de operadores
-            template <class T, class Container>
-            bool operator== (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
+            //template <class T, class Container>
+            //bool operator== (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
 
-            }
-
+           // }
+/*
             template <class T, class Container>
             bool operator!= (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
 
@@ -97,6 +96,54 @@ namespace ft {
 
             }*/
     };
+
+    
+    template< typename Type, typename Container >
+		inline bool	operator==( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs )
+		{
+			return lhs.c == rhs.c;
+		}
+/*
+	template< typename Type, typename Container >
+		inline bool
+		operator!=( const stack<Type, Container>& lhs,
+					const stack<Type, Container>& rhs )
+		{
+			return !(lhs == rhs);
+		}
+
+	template< typename Type, typename Container >
+		inline bool
+		operator<( const stack<Type, Container>& lhs,
+					const stack<Type, Container>& rhs )
+		{
+			return lhs.c < rhs.c;
+		}
+
+	template< typename Type, typename Container >
+		inline bool
+		operator<=( const stack<Type, Container>& lhs,
+					const stack<Type, Container>& rhs )
+		{
+			return !(rhs < lhs);
+		}
+
+	template< typename Type, typename Container >
+		inline bool
+		operator>( const stack<Type, Container>& lhs,
+					const stack<Type, Container>& rhs )
+		{
+			return rhs < lhs;
+		}
+
+	template< typename Type, typename Container >
+		inline bool
+		operator>=( const stack<Type, Container>& lhs,
+					const stack<Type, Container>& rhs )
+		{
+			return !(lhs < rhs);
+		}
+    */
 }
 
 #endif

@@ -13,20 +13,30 @@ int main(){
   ft::stack<int> pila1 = ft::stack<int>();
 
   std::cout << "\n========= push =============" << std::endl;
-  std::cout << "Añadimos un elemento a pila1 con el metodo push de esta forma -->g@ pila1.push(5);" << std::endl;
-  pila1.push(5);
+  std::cout << "Añadimos un elemento a pila1 con el metodo push de esta forma --> pila1.push(5);" << std::endl;
+  pila1.push(5);  //prueba del metodo PUSH
 
   std::cout << "\n========= top =============" << std::endl;
-  int value1 = pila1.top();
+  int value1 = pila1.top(); //prueba del metodo TOP
   std::cout << "El elemento de la pila1 es: " << value1 << std::endl;
 
   std::cout << "\n========= empty =============" << std::endl;
-  std::string ret = pila1.empty() ? "True" : "False";
+  std::string ret = pila1.empty() ? "True" : "False";  //prueba del metodo EMPTY
   std::cout << "El Objeto pila1 esta vacio: " << ret << std::endl;
   ret = pila2.empty() ? "True" : "False";
   std::cout << "El Objeto pila2 esta vacio: " << ret << std::endl;
 
+  std::cout << "\n========= size =============" << std::endl;
+  std::cout << "El Objeto pila2 tiene " << pila2.size() << " elementos" << std::endl;  //prueba del metodo SIZE
+  std::cout << "El Objeto pila1 tiene " << pila1.size() << " elementos" << std::endl;
 
+  std::cout << "\n========= pop =============" << std::endl;
+  std::cout << "Quitamos el ultimo elemento a pila1 con el metodo pop de esta forma --> pila1.pop();" << std::endl;
+  pila1.pop();  //prueba del metodo POP
+  std::cout << "El Objeto pila1 tiene " << pila1.size() << " elementos" << std::endl;
+
+  bool test = (pila2 == pila1);
+  std::cout << test << " son iguales" <<std::endl;
 
     //ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
     std::vector<int> v1(10); //inicializando un vector de tipo enteros vacio
