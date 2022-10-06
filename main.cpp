@@ -11,6 +11,8 @@ int main(){
   //ft::stack<int> pila1;
   ft::stack<int> pila2;
   ft::stack<int> pila1 = ft::stack<int>();
+  ft::stack<int> pila3;
+
 
   std::cout << "\n========= push =============" << std::endl;
   std::cout << "Añadimos un elemento a pila1 con el metodo push de esta forma --> pila1.push(5);" << std::endl;
@@ -37,10 +39,14 @@ int main(){
 
   bool test = (pila2 == pila1);
   std::cout << test << " son iguales" <<std::endl;
-
+  pila1.push(10);
   test = (pila2 < pila1);
   std::cout << test << " es menor " <<std::endl;
-
+  //pila3.push(5);
+  if(pila3 == pila1)
+    std::cout << test << "no es distinto " <<std::endl;
+  else
+    std::cout << test << " es distinto " <<std::endl;
 
     //ft::vector<int> v0; //inicializando un vector de tipo enteros vacio
     std::vector<int> v1(10); //inicializando un vector de tipo enteros vacio

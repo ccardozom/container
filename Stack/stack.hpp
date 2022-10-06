@@ -25,7 +25,7 @@ namespace ft {
             //instanciamos un objeto c de tipo vector<T> especificando el acceso como protegido
             //para que asi los miembros de la clase puedan acceder a el pero no se podrá acceder
             //desde otra clase
-            container_type c;
+            container_type _c;
 
         public:
             //Constructores
@@ -34,84 +34,76 @@ namespace ft {
             //en este enlace puedes encontrar un ejemplo claro del porque y para que se utiliza la palabra reservada http://ambar.com.ve/saphire/?p=505
             // Ejemplo: stack(int) pila; -->esto llama al constructor donde vemos que al cambiar los alias quedaria de esta forma vector<T> &ctnr = vector<T>()
             explicit stack (const container_type& ctnr = container_type()){
-                c = ctnr;  
+                _c = ctnr;  
             }
 
             //Destructor
              ~stack(){
              }
-           //Funciones miebros
+           //Funciones miebro
             bool empty() const{
-                return c.empty();
+                return _c.empty();
             }
 
             size_type size(){
-                return c.size();
+                return _c.size();
             }
    
             value_type& top(){
-                return c.back();
+                return _c.back();
             }
 
             void push(const value_type& value){
-                c.push_back(value);
+                _c.push_back(value);
             }
 
             void pop(){
-                c.pop_back();
+                _c.pop_back();
             }
- 
 
-			template< typename Type, typename C>
-			friend bool	operator==( const stack<Type, C>& lhs,	const stack<Type, C>& rhs );
+
+
+			template<class U, class Cont>
+			friend bool	operator==(const stack<U, Cont>& lhs, const stack<U, Cont>& rhs);
             
+            template <class U, class Cont>
+            friend bool operator<(const stack<U, Cont>& lhs, const stack<U, Cont>& rhs);
+
+            template <class U, class Cont>
+            friend bool operator!=(const stack<U, Cont>& lhs, const stack<U, Cont>& rhs);
+
+           /* template <class Type, class C>
+            friend bool operator<= (const stack<Type, C>& lhs, const stack<Type, C>& rhs){
+            }
+
             template <class Type, class C>
-            friend bool operator< (const stack<Type, C>& lhs, const stack<Type,C>& rhs);
-
-/*
-            template <class T, class Container>
-            bool operator!= (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
-
+            friend bool operator>  (const stack<Type, C>& lhs, const stack<Type, C>& rhs){
             }
 
-
-            template <class T, class Container>
-            bool operator<= (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
-
-            }
-
-            template <class T, class Container>
-            bool operator>  (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
-
-            }
-
-            template <class T, class Container>
-            bool operator>= (const stack<T,Container>& lhs, const stack<T,Container>& rhs){
-
+            template <class Type, class C>
+            friend bool operator>= (const stack<Type, C>& lhs, const stack<Type, C>& rhs){
             }*/
     };
 
     
-    template< typename Type, typename Container >
-	bool operator== ( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs )
-    {
-        return lhs.c == rhs.c;
+    template<typename Type, typename Container>
+	bool operator== ( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
+        return lhs._c == rhs._c;
     }
 
-	template< typename Type, typename Container > 
-    bool operator< ( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs )
-		{
-			return lhs.c < rhs.c;
-		}
-/*
-	template< typename Type, typename Container >
-		inline bool
-		operator!=( const stack<Type, Container>& lhs,
-					const stack<Type, Container>& rhs )
-		{
-			return !(lhs == rhs);
+
+	template<typename Type, typename Container> 
+    bool operator< (const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
+			return lhs._c < rhs._c;
 		}
 
+	template<typename Type, typename Container>
+	bool operator!=(const stack<Type, Container>& lhs, const stack<Type, Container>& rhs)
+		{
+            bool diff = lhs._c == rhs._c;
+			return !diff;
+		}
+/*
 	template< typename Type, typename Container >
 		inline bool
 		operator<=( const stack<Type, Container>& lhs,
