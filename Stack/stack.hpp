@@ -16,7 +16,7 @@ namespace ft {
             //Si necesitamos hacer uso de un tipo proporcionado por la clase/estructura utilizada para especializar el template tendremos 
             //que redeclarar el tipo en nuestro template. En este caso tendremos que usar obligatoriamente typename
             // aqui esta un comentario que puede ayudar a entender mejor esta definicion https://es.stackoverflow.com/questions/540/son-iguales-class-y-typename-en-el-contexto-de-template
-            typedef typename Container::value_type  value_type;
+            typedef T value_type;
             //es lo mismo que size_t y sirve para representar el tamaño del objeto en forma de un entero positivo 
             //con valor de 0 a 4.000.000.000 aproximadamente
             typedef typename Container::size_type   size_type;
@@ -61,6 +61,10 @@ namespace ft {
                 _c.pop_back();
             }
 
+            stack& operator= (const stack& other){
+                _c = other._c;
+                return *this;
+            }
 
 
 			template<class U, class Cont>
@@ -72,62 +76,47 @@ namespace ft {
             template <class U, class Cont>
             friend bool operator!=(const stack<U, Cont>& lhs, const stack<U, Cont>& rhs);
 
-           /* template <class Type, class C>
-            friend bool operator<= (const stack<Type, C>& lhs, const stack<Type, C>& rhs){
-            }
+            template <class Type, class C>
+            friend bool operator<= (const stack<Type, C>& lhs, const stack<Type, C>& rhs);
 
             template <class Type, class C>
-            friend bool operator>  (const stack<Type, C>& lhs, const stack<Type, C>& rhs){
-            }
+            friend bool operator>  (const stack<Type, C>& lhs, const stack<Type, C>& rhs);
 
             template <class Type, class C>
-            friend bool operator>= (const stack<Type, C>& lhs, const stack<Type, C>& rhs){
-            }*/
+            friend bool operator>= (const stack<Type, C>& lhs, const stack<Type, C>& rhs);
     };
 
     
-    template<typename Type, typename Container>
+    template<class Type, class Container>
 	bool operator== ( const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
         return lhs._c == rhs._c;
     }
 
 
-	template<typename Type, typename Container> 
+	template<class Type, class Container> 
     bool operator< (const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
 			return lhs._c < rhs._c;
 		}
 
-	template<typename Type, typename Container>
-	bool operator!=(const stack<Type, Container>& lhs, const stack<Type, Container>& rhs)
-		{
-            bool diff = lhs._c == rhs._c;
-			return !diff;
-		}
-/*
-	template< typename Type, typename Container >
-		inline bool
-		operator<=( const stack<Type, Container>& lhs,
-					const stack<Type, Container>& rhs )
-		{
-			return !(rhs < lhs);
-		}
+	template<class Type, class Container>
+	bool operator!= (const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
+            return lhs._c != rhs._c;
+        }
+    
+    template <class Type, class Container>
+    bool operator<= (const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
+        return lhs._c <= rhs._c;
+    }
 
-	template< typename Type, typename Container >
-		inline bool
-		operator>( const stack<Type, Container>& lhs,
-					const stack<Type, Container>& rhs )
-		{
-			return rhs < lhs;
-		}
+    template <class Type, class Container>
+    bool operator>  (const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
+        return lhs._c > rhs._c;
+    }
 
-	template< typename Type, typename Container >
-		inline bool
-		operator>=( const stack<Type, Container>& lhs,
-					const stack<Type, Container>& rhs )
-		{
-			return !(lhs < rhs);
-		}
-    */
+    template <class Type, class Container>
+    bool operator>= (const stack<Type, Container>& lhs, const stack<Type, Container>& rhs){
+        return lhs._c >= rhs._c;
+    }	
 }
 
 #endif

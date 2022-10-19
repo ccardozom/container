@@ -1,33 +1,83 @@
-En este repositorio intento replicar en su totalidad tres contenedores de la libreria STD de C++, STACK, VECTOR y MAP
+En este repositorio
+ intento replicar en su totalidad tres contenedores de la libreria STD de C++, STACK, VECTOR y MAP
 
 Los contenedores son una forma de estructurar los datos generalmente en una cantidad ilimitada. Facilitan la gestión del espacio de almacenamiento necesario en la memoria para los objetos creados
+
+He decidido tomar como fuente de información las documentaciónes presentadas
+ en cppreference.com y cplusplus.com que desde mi punto de vista están mejor estructuradas y es más fácil de entender.
 
 STACK 
 
 Este contendor es mas un adaptador de contenedor, que significa que esta diseñado para poder manejar los elementos con un contexto de LIFO(Last In First Out - ultimo en entrar primero en salir)
+Proporciona una restricción de la funcionalidad que limita el acceso al elemento agregado más recientemente a algún tipo de contenedor subyacente.
+La clase stack se usa cuando es importante tener claro que solo se están haciendo operaciones de inserción y eliminación en un extremo del contenedor.(LIFO)
 
 La sintaxis es
 
-			template <class Type, class Container = deque <Type> > class stack
+			template <class Type, class Container = deque <Type>> 
+			class stack
 
-el parametro <Type> es el tipo de dato de los elementos que se van a almacenar en el stack y su alias es T
+el parametro <Type> es el tipo de dato de los elementos que se van a almacenar en el stack y su alias es T. Es importante que el <Type> del primer parametro sea el mismo que el del segundo parametro.
 el parametro <Container> es el tipo de contenedor subyacente que se usa para implementar el stack. El valor por defecto es <deque <Type> pero yo usare el <vector <Type>> 
 	
-	¿Que es un contenedor subyacente?
+	¿Qué es un contenedor subyacente?
 		Entiendo por contenedor subyacente que es el contenedor que quieres usar para instanciar una clase que pueden ser std::vector, std::deque y std::list porque son los que cumplen con los requisitos de proporcionar los metodos back(), push_back() y pop_back() 
 
-Tiene los siguientes metodos o funciones miembros (todos son públicos):
-
-	- empty:	comprueba si el stack esta vacio, devuelve verdadero si esta vacio, de lo contrario devuelve falso.
-	- pop: 		elimina el último elemento agregado al stack y reduce el tamaño en uno
-	- push:		inserta un elemento al stack en la parte superior, aumenta en uno su tamaño
-	- size:		devuelve el tamaño del stack
-	- top:		accede al último elemento agregado al stack y devuelve una referencia a ese elemento.
-
-Los tipos de miembros y su definicion:
+Definiciones de los alias o typedef:
 
 	container_type		Container (Es el contenedor base o subyacente en nuestro caso seria vector<T>)
 	value_type			Conatiner::value_type (Es el tipo de elemento que recibe, puede ser int, char, string,..etc)
 	size_type			Container::size_type (Es un numero entero positivo, seria un unsigned 0~MAX_INT)
+
+El STACK tiene los siguientes métodos o funciones miembros:
+
+	Constructor
+	- stack: construye un stack vacio o una copia de la clase del contenedor subyacente
+		explicit stack (const container_type& ctnr = container_type());
+
+	- empty:	comprueba si el stack esta vacio, devuelve verdadero si esta vacio, de lo contrario devuelve falso.
+		bool empty() const;
+
+	- pop: 		elimina el último elemento agregado al stack y reduce el tamaño en uno
+		void pop();
+
+	- push:		inserta un elemento al stack en la parte superior, aumenta en uno su tamaño
+		void push (const value_type& val);
+
+	- size:		devuelve el tamaño del stack
+		size_type size() const;
+
+	- top:		accede al último elemento agregado al stack y devuelve una referencia a ese elemento.
+		value_type& top();
+
+	- operator=:	Asigna los contenidos del stack a otro stack
+		stack& operator= (const stack& other);
+
+	Operadores:
+		- operator==		compara si dos stacks son iguales
+		    template <class T, class Container>
+			bool operator== (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
+
+		- operator!=		compara si dos stacks son diferentes
+			template <class T, class Container>
+			bool operator!= (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
+
+		- operator<		compara si un stack es menor que otro
+			template <class T, class Container>
+			bool operator<  (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
+
+		- operator<=		compara si un stack es menor o igual que otro
+			template <class T, class Container>
+			bool operator<= (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
+
+		- operator>		compara si un stack es mayor que otro
+			template <class T, class Container>
+			bool operator>  (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
+
+		- operator>=		compara si un stack es mayor o igual que otro
+			template <class T, class Container>
+			bool operator>= (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
+
+
 
 
