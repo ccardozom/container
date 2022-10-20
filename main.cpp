@@ -61,6 +61,15 @@ int main(){
   std::cout << "El Objeto pila1 esta vacio: " << ret << std::endl;
   ret = pila2.empty() ? "True" : "False";
   std::cout << "El Objeto pila2 esta vacio: " << ret << std::endl;
+  ft::stack<int> mystack_empty;
+  int sum(0);
+  for (int i(0); i < 10; i++)
+    mystack_empty.push(i);
+  while(!mystack_empty.empty()){
+    sum += mystack_empty.top();
+    mystack_empty.pop();
+  }
+  std::cout << "Total: " << sum << std::endl;
 
   std::cout << "\n========= size =============" << std::endl; //prueba del metodo SIZE
   std::cout << "El Objeto pila2 tiene " << pila2.size() << " elementos" << std::endl;
