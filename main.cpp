@@ -137,8 +137,12 @@ int main(){
 
   std::cout << "*******  PRUEBAS PARA EL CONTENEDOR VECTOR  *******" << std::endl;
 
-  
+  std::vector<int> vector1(10, 10);
+  std::vector<int>::iterator *p = NULL;
 
+  *p = vector1.begin();
+  std::cout << "Valor de p: " << p << std::endl;
+  //std::cout << "Valor de *p: " << *p << std::endl;
 
   return 0;
 }

@@ -14,7 +14,7 @@ La clase stack se usa cuando es importante tener claro que solo se están hacien
 
 La sintaxis es
 
-			template <class Type, class Container = deque <Type>> 
+			template <class Type, class Container = deque <Type> > 
 			class stack
 
 el parametro <Type> es el tipo de dato de los elementos que se van a almacenar en el stack y su alias es T. Es importante que el <Type> del primer parametro sea el mismo que el del segundo parametro.
@@ -79,5 +79,28 @@ El STACK tiene los siguientes métodos o funciones miembros:
 			bool operator>= (const stack<T, Container>& lhs, const stack<T, Container>& rhs);
 
 
+VECTOR
 
+Este contenedor es similar a un array inteligente que almacena su tamaño y puedo crecer para hacer espacio para
+almacenar mas datos. Los elementos de un vector se almacenan de forma contigua y puedes acceder a cualquier elemento
+del vector con un puntero o por medio del operador de subindice []
+
+La sintaxis es:
+
+template < class T, class Alloc = allocator<T> > 
+class vector;
+
+Donde T es el tipo de dato de los elementos que se van a ir añadiendo al vector
+y Alloc hace referencia a la clase asignadora de memoria para ser utilizado por el vector 
+
+Members type para allocator
+----------------------------------------------------------------------------
+| value_type			|	T		|	Element type						|
+| pointer				|	T*		|	Pointer to element					|
+| reference				|	T&		|	Reference to element				|
+| const_pointer	const 	|	T*		|	Pointer to constant element			|
+| const_reference const |	T&		|	Reference to constant element		|
+| size_type				|	size_t	|	Quantities of elements				|
+| difference_type		| ptrdiff_t	|	Difference between two pointers		|
+----------------------------------------------------------------------------
 
