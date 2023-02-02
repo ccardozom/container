@@ -30,7 +30,7 @@ namespace ft {
             Alloc _alloc;
             T*  _array;
         public:
-            //-------------- CONSTRUCTORS ----------------
+            //-------------- CONSTRUCTORES ----------------
             explicit vector(const allocator_type& alloc = allocator_type()) { 
             _array = NULL;
             _size = 0;
@@ -110,6 +110,22 @@ namespace ft {
 
             const iterator end() const{
                 return const_iterator(this->_array + this->_size);
+            }
+
+            reverse_iterator rbegin(){
+                return reverse_iterator(end());
+            }
+
+            const_reverse_iterator rbegin() const{
+                return const_reverse_iterator(end());
+            }
+
+            reverse_iterator rend(){
+                return reverse_iterator(begin());
+            }
+
+            const_reverse_iterator rend() const{
+                return const_reverse_iterator(begin());
             }
 
             // ----------- CAPACIDAD -----------------
