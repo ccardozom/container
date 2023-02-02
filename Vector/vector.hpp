@@ -131,7 +131,11 @@ namespace ft {
             // ----------- CAPACIDAD -----------------
 
             size_type size() const {
-                return this->_size;
+                return _size;
+            }
+
+            size_type max_size() const{
+                return _alloc.max_size();
             }
 
             // ----------- ACCESO DE ELEMENTOS -----------

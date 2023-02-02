@@ -150,6 +150,8 @@ int main(){
   for(int i = 0; i != (int)vector1.size() ; i++){
     std::cout << "Vector1: " << vector1[i] << "  Vector2: " << vector2[i] << std::endl;
   }
+  std::cout << "Size de vector1: " << vector1.size() << std::endl;
+  std::cout << "Size de vector1: " << vector1.max_size() << std::endl;
 
   return 0;
 }
