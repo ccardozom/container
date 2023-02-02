@@ -6,6 +6,7 @@
 #include "../commons/reverse_iterator.hpp"
 #include "../commons/enable_if.hpp"
 #include "../commons/is_integral.hpp"
+#include <iostream>
 
 namespace ft {
    template < class T, class Alloc = std::allocator<T> >
@@ -29,71 +30,98 @@ namespace ft {
             Alloc _alloc;
             T*  _array;
         public:
-        //-------------- CONSTRUCTORS ----------------
-        explicit vector(const allocator_type& alloc = allocator_type()) { 
-        _array = NULL;
-        _size = 0;
-        _capacity = 0; 
-        _alloc = alloc;
-        }
-
-        explicit vector(size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()){
-            //_array = NULL;
-            _size = n;
-            _capacity = n;
-            _alloc = alloc;
-
-            _array = _alloc.allocate(n);
-            for(size_t i = 0; i < n; i++)
-                _alloc.construct(_array + i, val);
-        }
-
-        template<class InputIterator>
-        vector (typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, const allocator_type& alloc = allocator_type()){
+            //-------------- CONSTRUCTORS ----------------
+            explicit vector(const allocator_type& alloc = allocator_type()) { 
             _array = NULL;
             _size = 0;
-            _capacity = 0;
+            _capacity = 0; 
             _alloc = alloc;
+            }
 
-            for( ; first != last; first++)
-                push_back(*first);
-        }
+            explicit vector(size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()){
+                //_array = NULL;
+                _size = n;
+                _capacity = n;
+                _alloc = alloc;
 
-        vector(const vector& x){
-            _array = NULL;
-            _size = 0;
-            _capacity = 0;
+                _array = _alloc.allocate(n);
+                for(size_t i = 0; i < n; i++)
+                    _alloc.construct(_array + i, val);
+            }
 
-            *this = x;
-        }
+            template<class InputIterator>
+            vector (typename ft::enable_if<!ft::is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last, const allocator_type& alloc = allocator_type()){
+                _array = NULL;
+                _size = 0;
+                _capacity = 0;
+                _alloc = alloc;
 
-    // ---------- DESTRUCTOR --------------
+                for( ; first != last; first++)
+                    push_back(*first);
+            }
 
-    ~vector(){
-        if(_capacity){
-            for(size_t i = 0; i < _size; i++)
-                _alloc.destroy(_array + 1);
-            _alloc.deallocate(_array, _capacity);
-        }
-    }
+            vector(const vector& x){
+                _array = NULL;
+                _size = 0;
+                _capacity = 0;
 
-    // ------------ SOBRECARGA DE OPERADOR -----------
+                *this = x;
+            }
 
-    vector& operator= (const vector &x){
-        if(this != &x){
-            this->~vector();
-            _size = x._size;
-            _capacity = x._capacity;
-            _alloc = x._alloc;
-            if(_capacity != 0)
-                _array = _alloc.allocate(_capacity);
-            for(size_t i = 0; i < _size; i++)
-                _alloc.construc(_array + i + x._array[i]);
-        }
-        return *this;
-    }
+            // ---------- DESTRUCTOR --------------
 
+            ~vector(){
+                if(_capacity){
+                    for(size_t i = 0; i < _size; i++)
+                        _alloc.destroy(_array + 1);
+                    _alloc.deallocate(_array, _capacity);
+                }
+            }
 
+            // ------------ SOBRECARGA DE OPERADOR -----------
+
+            vector& operator= (const vector &x){
+                if(this != &x){
+                    this->~vector();
+                    _size = x._size;
+                    _capacity = x._capacity;
+                    _alloc = x._alloc;
+                    if(_capacity != 0)
+                        _array = _alloc.allocate(_capacity);
+                    for(size_t i = 0; i < _size; i++)
+                        _alloc.construct(_array + i, x._array[i]);
+                }
+                return *this;
+            }
+
+            // ------------- ITERADORES ------------------
+
+            iterator begin(){
+                return iterator(this->_array);
+            }
+            
+            const iterator begin() const{
+                return const_iterator(this->_array);
+            }
+
+            iterator end(){
+                return iterator(this->_array + this->_size);
+            }
+
+            const iterator end() const{
+                return const_iterator(this->_array + this->_size);
+            }
+
+            // ----------- CAPACIDAD -----------------
+
+            size_type size() const {
+                return this->_size;
+            }
+
+            // ----------- ACCESO DE ELEMENTOS -----------
+            reference operator[] (size_type n){
+                return this->_array[n];
+            }
    };
 }
 

@@ -137,12 +137,19 @@ int main(){
 
   std::cout << "*******  PRUEBAS PARA EL CONTENEDOR VECTOR  *******" << std::endl;
 
-  std::vector<int> vector1(10, 10);
-  std::vector<int>::iterator *p = NULL;
+  ft::vector<int> vector1(10, 10);
+  ft::vector<int> vector2;
+                
+  vector2 = vector1;
 
-  *p = vector1.begin();
-  std::cout << "Valor de p: " << p << std::endl;
+  ft::vector<int>::iterator p;
+
+  p = vector1.begin();
+  std::cout << "Valor de p: " << *p << std::endl;
   //std::cout << "Valor de *p: " << *p << std::endl;
+  for(int i = 0; i != (int)vector1.size() ; i++){
+    std::cout << "Vector1: " << vector1[i] << "  Vector2: " << vector2[i] << std::endl;
+  }
 
   return 0;
 }
