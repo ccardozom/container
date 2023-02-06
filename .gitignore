@@ -1,4 +1,5 @@
 main.o
+main_test.cpp
 container
 main
 test
