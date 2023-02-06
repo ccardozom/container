@@ -138,9 +138,73 @@ namespace ft {
                 return _alloc.max_size();
             }
 
+            void resize(size_type n, value_type val = value_type()){
+                if (n > this->_capacity)
+                    this->reallocation(n);
+                for (size_t i = this->_sizej - n; i > 0; i++)
+                    this->push_back(val);
+            }
+
             // ----------- ACCESO DE ELEMENTOS -----------
             reference operator[] (size_type n){
                 return this->_array[n];
+            }
+
+            // ----------- MODIFICADORES ------------------
+
+            void push_back(const value_type& val){
+                if (this->_size < this->_capacity)
+                    this->_alloc.construct(this->_array + this->_size, val);
+                else{
+                    if (this->_capacity)
+                        this->reallocation(this->_capacity * 2);
+                    else{
+                        this->_array = this->_alloc.allocate(1);
+                        this->_capacity++;
+                    }
+                    this->_alloc.construct(this->_array + this->_size, val);
+                }
+                this->_size++;
+            }
+
+            void pop_back(){
+                if(!this->empty()){
+                    this->_alloc.destroy(this->_array + (this->_size - 1));
+                    this->_size--;
+                }
+            }
+
+            iterator insert(iterator position, const value_type& val){
+                if(this->_capacity == this->max_size())
+                    return NULL;
+                if(this->_capacity == 0){
+                    this->push_back(val);
+                    return this->begin();
+                }
+                if(this->_capacity == this->_size){
+                    std::ptrdiff_t pos = position - this->begin();
+                    this->reallocation(2 * this->_capacity);
+                    position = this->begin() + pos;
+                }
+                vector tmp(position, this->end());
+            }
+
+            // ------------ ALOCADORES DE MEMORIA ------------
+
+            allocator_type get_allocator() const{
+                return this->_alloc;
+            }
+
+        private:
+            void reallocation(size_t n){
+                pointer new_array = this->_alloc.allocate(n);
+                for(size_t i = 0; i < this->_size; i++){
+                    this->_alloc.construct(new_array + i, this->_array[i]);
+                    this->_alloc.destroy(this->_array + i);
+                }
+                this->_alloc.deallocate(this->_array, this->_capacity);
+                this->_array = new_array;
+                this->_capacity = n;
             }
    };
 }
