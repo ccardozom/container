@@ -186,7 +186,13 @@ namespace ft {
                     this->reallocation(2 * this->_capacity);
                     position = this->begin() + pos;
                 }
-                vector tmp(position, this->end());
+                vector aux(position, this->end());
+                for(size_t i = 0; i < aux.size(); i++)
+                    this->pop_back();
+                this->push_back(val);
+                for(iterator it = aux.begin(); it != aux.end(); it++)
+                    this->push_back(*it);
+                return position;
             }
 
             // ------------ ALOCADORES DE MEMORIA ------------
