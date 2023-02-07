@@ -2,7 +2,7 @@ NAME = container
 
 SRCS = main.cpp 
 CXX = clang++
-CXXFLAGS = -Wall -Werror -Wextra
+CXXFLAGS = -Wall -Werror -Wextra -g
 OBJS = $(SRCS:.cpp=.o)
 RM = rm -rf
 

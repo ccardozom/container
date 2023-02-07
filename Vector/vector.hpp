@@ -139,12 +139,28 @@ namespace ft {
             }
 
             void resize(size_type n, value_type val = value_type()){
-                if (n > this->_capacity)
+                if (n > this->_capacity){
                     this->reallocation(n);
                 for (size_t i = this->_sizej - n; i > 0; i++)
                     this->push_back(val);
+                }
+                else if(n < this->_size)
+                    for(size_t i = this->_size - n; i > n; i--)
+                        this->pop_back();
             }
 
+            size_type capacity() const{
+                return this-> _capaciti;
+            }
+
+            void reserve(size_type n){
+                if(n > this->_capacity){
+                    if(n > this->max_size())
+                        throw std::length_error("vector::reserve");
+                    this->reallocation(n);
+
+                }
+            }
             // ----------- ACCESO DE ELEMENTOS -----------
             reference operator[] (size_type n){
                 return this->_array[n];
