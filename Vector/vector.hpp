@@ -166,6 +166,18 @@ namespace ft {
                 return this->_array[n];
             }
 
+            const_reference operator[](size_type n) const{
+                return this->_array[n];
+            }
+
+            reference at(size_type n){
+                if(n >= this->_size)
+                    throw std::out_of_range("Index out of vector bounds!");
+                return this->_array[n];
+            }
+
+            
+
             // ----------- MODIFICADORES ------------------
 
             void push_back(const value_type& val){
