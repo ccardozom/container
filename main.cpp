@@ -152,6 +152,14 @@ int main(){
   }
   std::cout << "Size de vector1: " << vector1.size() << std::endl;
   std::cout << "Size de vector1: " << vector1.max_size() << std::endl;
-
+  for(int i = 0; i != (int)vector1.size() ; i++){
+    vector1[i] = i*2;
+  }
+  std::cout << "Opteniendo el valor de vector1["<< 3 << "]: " << vector1.at(3) << std::endl;
+  for(int i = 0; i != (int)vector1.size() ; i++){
+    std::cout << "Vector1: " << vector1[i] << "  Vector2: " << vector2[i] << std::endl;
+  }
+  std::cout << vector1.capacity() << std::endl;
+  
   return 0;
 }

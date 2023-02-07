@@ -150,7 +150,7 @@ namespace ft {
             }
 
             size_type capacity() const{
-                return this-> _capaciti;
+                return this-> _capacity;
             }
 
             void reserve(size_type n){
@@ -177,6 +177,8 @@ namespace ft {
             }
 
             
+
+
 
             // ----------- MODIFICADORES ------------------
 
