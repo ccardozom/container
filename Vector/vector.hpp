@@ -161,6 +161,11 @@ namespace ft {
 
                 }
             }
+
+            bool empty() const{
+                return this->_size == 0;
+            }
+
             // ----------- ACCESO DE ELEMENTOS -----------
             reference operator[] (size_type n){
                 return this->_array[n];
