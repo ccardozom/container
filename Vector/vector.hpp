@@ -243,6 +243,19 @@ namespace ft {
                 return position;
             }
 
+            void insert(iterator position, size_type n, const value_type& val){
+                for(size_type i = 0; i < n; i++)
+                    position = this->insert(position, val);
+            }
+
+            template<class InputIterator>
+            void insert(iterator position, typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
+                for( ; first != last; first++){
+                    position = this->insert(position, *first);
+                    position++;
+                }
+            }
+
             void assing(size_type n, const value_type& val){
                 this->clear();
                 for(size_type i = 0; i < n; i++)
