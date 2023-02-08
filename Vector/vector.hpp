@@ -249,7 +249,17 @@ namespace ft {
                     this->pop_back(val);
             }
 
-            
+            template<class InputIterator>
+            void assing(typename ft::enable_if<!is_integral<InputIterator>::value, InputIterator>::type first, InputIterator last){
+                size_t i = last - first;
+                this->clear();
+                if(this->_capacity < 1)
+                    this->reserve(i);
+                while(first != last){
+                    this->push_back(*first);
+                    first++;
+                }
+            }
 
             // ------------ ALOCADORES DE MEMORIA ------------
 
