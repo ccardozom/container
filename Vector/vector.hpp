@@ -243,6 +243,14 @@ namespace ft {
                 return position;
             }
 
+            void assing(size_type n, const value_type& val){
+                this->clear();
+                for(size_type i = 0; i < n; i++)
+                    this->pop_back(val);
+            }
+
+            
+
             // ------------ ALOCADORES DE MEMORIA ------------
 
             allocator_type get_allocator() const{
