@@ -296,6 +296,28 @@ namespace ft {
                 }
             }
 
+            void clear(){
+                for(size_t i = 0; i < this->_size; i++)
+                    this->_alloc.destroy(this->_array + i);
+                this->_size = 0;
+            }
+
+            void swap(vector& x){
+                allocator_type aux_alloc = x._alloc;
+                size_type aux_size = x._size;
+                size_type aux_capacity = x._capacity;
+                pointer aux_array = x._array;
+
+                x._alloc = this->_alloc;
+                this->_alloc = aux_alloc;
+                x._size = this->_size;
+                this->_size = aux_size;
+                x._capacity = this->_capacity;
+                this->_capacity = aux_capacity;
+                x._array = this->_array;
+                this->_array = aux_array;
+            }
+
             // ------------ ALOCADORES DE MEMORIA ------------
 
             allocator_type get_allocator() const{
