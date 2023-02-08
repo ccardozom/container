@@ -181,8 +181,21 @@ namespace ft {
                 return this->_array[n];
             }
 
-            
+            reference front(){
+                return this->_array[0];
+            }            
 
+            reference front() const{
+                return this->_array[0];
+            }   
+
+            const_reference back(){
+                return this->_array[this->_size - 1];
+            }
+
+            const_reference back() const{
+                return this->_array[this->_size - 1];
+            }
 
 
             // ----------- MODIFICADORES ------------------
