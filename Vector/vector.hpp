@@ -256,6 +256,28 @@ namespace ft {
                 }
             }
 
+            iterator erase(iterator position){
+                if(this->empty() == true ||  position > this->end())
+                    return NULL;
+                vector aux(position + 1, this->end());
+                for(size_t i = 0; i <= aux.size(); i++)
+                    this->pop_back();
+                for(iterator it = aux.begin(); it != aux.end(); it++)
+                    this->pop_back();
+                return position;
+            }
+
+            iterator erase(iterator first, iterator last){
+                if(this->empty() == true || last > this->end() || first > this->end())
+                    return NULL;
+                iterator aux = first;
+                while(aux != last){
+                    erase(first);
+                    aux++;
+                }
+                return first;
+            }
+
             void assing(size_type n, const value_type& val){
                 this->clear();
                 for(size_type i = 0; i < n; i++)
