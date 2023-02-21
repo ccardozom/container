@@ -3,7 +3,7 @@
 #include <vector>
 namespace ft{
     template<class Category, class T, class Distance = std::ptrdiff_t, class Pointer = T*, class Reference = T&>
-    class iterator{
+    struct iterator{
         typedef T value_type;
         typedef Distance difference_type;
         typedef Pointer pointer;
@@ -12,7 +12,7 @@ namespace ft{
     };
 
     template<class Iterator>
-    class iterator_traits{
+    struct iterator_traits{
         typedef typename Iterator::difference_type		difference_type;
 		typedef typename Iterator::value_type			value_type;
 		typedef typename Iterator::pointer				pointer;
@@ -21,7 +21,7 @@ namespace ft{
     };
 
     template <class T>
-	class iterator_traits<T*>
+	struct iterator_traits<T*>
 	{
 		public:
 			typedef std::ptrdiff_t						difference_type;
@@ -32,7 +32,7 @@ namespace ft{
 	};
 
 	template <class T>
-	class iterator_traits<const T*>
+	struct iterator_traits<const T*>
 	{
 		typedef std::ptrdiff_t						difference_type;
 		typedef const T								value_type;

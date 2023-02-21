@@ -17,11 +17,6 @@ namespace ft
 			typedef typename ft::iterator_traits<Iterator>::reference			reference;
 			typedef typename ft::vector_iterator<Iterator>						self;
 
-		private:
-			pointer	_ptr;
-
-		public:
-
 // -----------  CONSTRUCTORS -----------
 
 			vector_iterator()
@@ -120,6 +115,9 @@ namespace ft
 			{
 				return (this->_ptr);
 			}
+			
+		private:
+			pointer	_ptr;
 	};
 
 // -----------  NON-MEMBER FUNCTION OVERLOADS -----------

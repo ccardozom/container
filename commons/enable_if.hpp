@@ -7,7 +7,8 @@ namespace ft{
 
     template<class T>
     class enable_if<true, T>{
-        typedef T   type;
+        public:
+            typedef T   type;
     };
 }
 #endif

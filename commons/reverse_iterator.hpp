@@ -19,12 +19,7 @@ namespace ft
 			typedef typename iterator_traits<Iterator>::reference			reference;
 			typedef	reverse_iterator<Iterator>								self;
 
-		private:
-			iterator_type _current;
-
-		public:
-
-// -----------  CONSTRUCTORS -----------
+	// -----------  CONSTRUCTORS -----------
 
 			reverse_iterator() :
 				_current(NULL)
@@ -120,6 +115,9 @@ namespace ft
 			{
 				return this->_current;
 			}
+
+		private:
+			iterator_type _current;
 	};
 
 // -----------  NON-MEMBER FUNCTION OVERLOADS -----------
