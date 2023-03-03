@@ -46,13 +46,14 @@ namespace ft {
                 return this->_c.size();
             }
    
+            const value_type& top() const{
+                return this->_c.back();
+            }
+            
             value_type& top(){
                 return this->_c.back();
             }
 
-            const value_type& top() const{
-                return this->_c.back();
-            }
 
             void push(const value_type& value){
                 this->_c.push_back(value);
@@ -62,8 +63,8 @@ namespace ft {
                 this->_c.pop_back();
             }
 
-            stack& operator= (const stack& other){
-                _c = other._c;
+            stack<T, Container>& operator= (const stack<T, Container>& other){
+                this->_c = other._c;
                 return *this;
             }
 

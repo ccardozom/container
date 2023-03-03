@@ -184,7 +184,7 @@ namespace ft {
                 return this->_array[0];
             }   
 
-            const_reference back(){
+            reference back(){
                 return this->_array[this->_size - 1];
             }
 
